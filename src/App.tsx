@@ -1,11 +1,12 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Layout from "./Layout/Layout";
 import axios from "axios";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 function App() {
   const [url, setUrl] = useState<string>("");
   const [shortlink, setShortLink] = useState<string>("");
-  const [copySuccess, setCopySuccess] = useState<string>("");
+  const [Copied, setCopied] = useState<boolean>(false);
   const urlRef = useRef<any>();
 
   const handleChange = (
@@ -21,15 +22,6 @@ function App() {
     axios.post(`https://kthkn.ir`, { url }).then((res) => {
       setShortLink(res.data.shortened_url);
     });
-  };
-
-  const copyToClipboard = (e: any) => {
-    // urlRef.current.select();
-    // document.execCommand("copy");
-    // This is just personal preference.
-    // I prefer to not show the whole text area selected.
-    e.target.focus();
-    setCopySuccess("Copied!");
   };
 
   return (
@@ -50,8 +42,13 @@ function App() {
           </button>
         </form>
 
-        <div>
-          <p ref={urlRef}>{shortlink}</p>
+        <div className="flex flex-col">
+          <CopyToClipboard text={shortlink} onCopy={() => setCopied(true)}>
+            <a ref={urlRef} href={shortlink} className="underline">
+              {shortlink}
+            </a>
+          </CopyToClipboard>
+          {Copied ? <span style={{ color: "red" }}>Copied.</span> : null}
         </div>
       </div>
     </Layout>
