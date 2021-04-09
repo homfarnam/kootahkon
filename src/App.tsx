@@ -44,7 +44,12 @@ function App() {
 
         <div className="flex flex-col">
           <CopyToClipboard text={shortlink} onCopy={() => setCopied(true)}>
-            <a ref={urlRef} href={shortlink} className="underline">
+            <a
+              ref={urlRef}
+              href={`http://${shortlink}`}
+              className="underline"
+              target="blank"
+            >
               {shortlink}
             </a>
           </CopyToClipboard>
