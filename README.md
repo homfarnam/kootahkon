@@ -1,8 +1,12 @@
-# cra-template-tailwindcss-typescript
+# Kootahkon.ir
 
-A streamlined [Tailwind CSS](https://tailwindcss.com) template for [Create React App](https://github.com/facebook/create-react-app) in [TypeScript](https://www.typescriptlang.org/).
+## TODO 
 
-> This template installs and sets up [Tailwind CSS](https://tailwindcss.com) with TypeScript support.
+- [ ] A carbon blue navbar
+- [ ] RTL/Persian language support 
+- [ ] Vazir font 
+- [ ] Input wide (look at bit.ly)
+- [ ] About and Contact static pages 
 
 ## Usage
 
