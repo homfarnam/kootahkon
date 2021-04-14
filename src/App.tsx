@@ -9,6 +9,21 @@ function App() {
   const [Copied, setCopied] = useState<boolean>(false);
   const urlRef = useRef<any>();
 
+  const validURL = (str: string) => {
+    var pattern = new RegExp(
+      "^(https?:\\/\\/)?" + // protocol
+        "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // domain name
+        "((\\d{1,3}\\.){3}\\d{1,3}))" + // OR ip (v4) address
+        "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // port and path
+        "(\\?[;&a-z\\d%_.~+=-]*)?" + // query string
+        "(\\#[-a-z\\d_]*)?$",
+      "i"
+    ); // fragment locator
+
+    console.log(!!pattern.test(str));
+    return !!pattern.test(str);
+  };
+
   const handleChange = (
     e: React.InputHTMLAttributes<HTMLInputElement> | any
   ) => {
@@ -18,10 +33,13 @@ function App() {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-
-    axios.post(`https://kthkn.ir`, { url }).then((res) => {
-      setShortLink(res.data.shortened_url);
-    });
+    if (validURL(url) === true) {
+      axios.post(`https://kthkn.ir`, { url }).then((res) => {
+        setShortLink(res.data.shortened_url);
+      });
+    } else {
+      return alert("لینک نیست.");
+    }
   };
 
   return (
@@ -50,14 +68,17 @@ function App() {
 
         <div className="flex flex-col">
           <CopyToClipboard text={shortlink} onCopy={() => setCopied(true)}>
-            <a
-              ref={urlRef}
-              href={`http://${shortlink}`}
-              className="underline"
-              target="blank"
-            >
-              {shortlink}
-            </a>
+            <span>
+              لینک کوتاه شده:
+              <a
+                ref={urlRef}
+                href={`http://${shortlink}`}
+                className="underline"
+                target="blank"
+              >
+                {shortlink}
+              </a>
+            </span>
           </CopyToClipboard>
           {Copied ? <span style={{ color: "red" }}>Copied.</span> : null}
         </div>
