@@ -26,21 +26,27 @@ function App() {
 
   return (
     <Layout>
-      <div className="flex w-full justify-center">
-        <h1>Kootahkon</h1>
-      </div>
       <div className="w-full m-auto flex flex-col items-center space-y-5 justify-center">
-        <form className="space-x-2 flex" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            className="p-2 text-black"
-            onChange={handleChange}
-            value={url}
-          />
-          <button className="border p-2 rounded-lg" type="submit">
-            Submit
-          </button>
-        </form>
+        <div className="w-full justify-center flex">
+          <form
+            className="space-x-2 flex w-full justify-center"
+            onSubmit={handleSubmit}
+          >
+            <input
+              type="text"
+              className="p-4 text-black border border-black rounded-lg w-4/12"
+              onChange={handleChange}
+              value={url}
+              placeholder="محل قرار دادن لینک"
+            />
+            <button
+              className="border bg-[#1b3987] hover:bg-blue-700 w-[200px] p-3 text-white rounded-lg"
+              type="submit"
+            >
+              کوتاه کن
+            </button>
+          </form>
+        </div>
 
         <div className="flex flex-col">
           <CopyToClipboard text={shortlink} onCopy={() => setCopied(true)}>
