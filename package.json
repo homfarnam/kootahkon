@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@tailwindcss/jit": "^0.1.18",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^13.1.1",
@@ -23,7 +24,8 @@
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
     "tailwindcss": "2.x",
-    "typescript": "4.x"
+    "typescript": "4.x",
+    "vazir-font": "^28.0.0"
   },
   "scripts": {
     "start": "run-p watch:css react-scripts:start",
