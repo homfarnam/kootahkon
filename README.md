@@ -2,11 +2,11 @@
 
 ## TODO 
 
-- [ ] A carbon blue navbar
-- [ ] RTL/Persian language support 
-- [ ] Vazir font 
-- [ ] Input wide (look at bit.ly)
-- [ ] About and Contact static pages 
+- [x] A carbon blue navbar
+- [x] RTL/Persian language support 
+- [x] Vazir font 
+- [x] Input wide (look at bit.ly)
+- [x] About and Contact static pages 
 
 ## Usage
 
