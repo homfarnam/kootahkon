@@ -11,10 +11,10 @@ const About: React.FC<AboutProps> = () => {
           <h3 className="font-semibold text-3xl">درباره ما</h3>
           <div className="w-1/2 mt-5">
             <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. A
-              corporis deserunt, magni maxime voluptate ducimus iste minima
-              dolor similique dignissimos, pariatur tenetur? Placeat, iste eius
-              ex reiciendis laboriosam mollitia aliquid!
+              کوتاه‌کن، یک سرویس کوتاه کننده پیوند است که به عنوان یک پروژه آخر هفته‌ای ساخته شد. کوتاه‌کن به شما کمک می‌کند تا پیوندهای بلند خود را در کوتاه‌ترین زمان به پیوندهای کوتاه و قابل اشاره در جاهای دیگر تبدیل کنید<div className=""></div>
+            </p>
+            <p>
+              کوتاه‌کن در مدت زمانی کوتاه و با کمک تکنولوژی‌های Ruby, Sinatra, SQLite و React نوشته شده است. 
             </p>
           </div>
         </div>
